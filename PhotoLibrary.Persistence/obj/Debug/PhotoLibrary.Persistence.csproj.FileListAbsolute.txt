@@ -1,4 +1,0 @@
-I:\Dev\PhotoLibrary\PhotoLibrary.Persistence\bin\Debug\PhotoLibrary.Persistence.dll
-I:\Dev\PhotoLibrary\PhotoLibrary.Persistence\bin\Debug\PhotoLibrary.Persistence.pdb
-I:\Dev\PhotoLibrary\PhotoLibrary.Persistence\obj\Debug\PhotoLibrary.Persistence.dll
-I:\Dev\PhotoLibrary\PhotoLibrary.Persistence\obj\Debug\PhotoLibrary.Persistence.pdb

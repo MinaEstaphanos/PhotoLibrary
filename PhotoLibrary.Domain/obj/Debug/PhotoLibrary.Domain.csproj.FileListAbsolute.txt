@@ -1,7 +1,0 @@
-I:\Dev\PhotoLibrary\PhotoLibrary.Domain\bin\Debug\PhotoLibrary.Domain.dll
-I:\Dev\PhotoLibrary\PhotoLibrary.Domain\bin\Debug\PhotoLibrary.Domain.pdb
-I:\Dev\PhotoLibrary\PhotoLibrary.Domain\bin\Debug\PhotoLibrary.DTO.dll
-I:\Dev\PhotoLibrary\PhotoLibrary.Domain\bin\Debug\PhotoLibrary.DTO.pdb
-I:\Dev\PhotoLibrary\PhotoLibrary.Domain\obj\Debug\PhotoLibrary.Domain.csprojResolveAssemblyReference.cache
-I:\Dev\PhotoLibrary\PhotoLibrary.Domain\obj\Debug\PhotoLibrary.Domain.dll
-I:\Dev\PhotoLibrary\PhotoLibrary.Domain\obj\Debug\PhotoLibrary.Domain.pdb
