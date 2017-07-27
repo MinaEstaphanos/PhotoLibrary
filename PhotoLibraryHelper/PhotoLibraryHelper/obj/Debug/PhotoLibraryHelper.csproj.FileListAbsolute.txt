@@ -1,0 +1,5 @@
+I:\Dev\PhotoLibrary\PhotoLibraryHelper\PhotoLibraryHelper\bin\Debug\PhotoLibraryHelper.dll
+I:\Dev\PhotoLibrary\PhotoLibraryHelper\PhotoLibraryHelper\bin\Debug\PhotoLibraryHelper.pdb
+I:\Dev\PhotoLibrary\PhotoLibraryHelper\PhotoLibraryHelper\bin\Debug\ImageProcessor.dll
+I:\Dev\PhotoLibrary\PhotoLibraryHelper\PhotoLibraryHelper\obj\Debug\PhotoLibraryHelper.dll
+I:\Dev\PhotoLibrary\PhotoLibraryHelper\PhotoLibraryHelper\obj\Debug\PhotoLibraryHelper.pdb
