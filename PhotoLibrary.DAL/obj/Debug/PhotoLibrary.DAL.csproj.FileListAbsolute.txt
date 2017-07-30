@@ -1,0 +1,13 @@
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\obj\Debug\PhotoLibrary.DAL.csprojResolveAssemblyReference.cache
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\PhotoLibrary.DAL.dll.config
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\PhotoLibrary.DAL.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\PhotoLibrary.DAL.pdb
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\EntityFramework.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\EntityFramework.SqlServer.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\PhotoLibraryHelper.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\ImageProcessor.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\PhotoLibraryHelper.pdb
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\EntityFramework.xml
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\bin\Debug\EntityFramework.SqlServer.xml
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\obj\Debug\PhotoLibrary.DAL.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DAL\obj\Debug\PhotoLibrary.DAL.pdb

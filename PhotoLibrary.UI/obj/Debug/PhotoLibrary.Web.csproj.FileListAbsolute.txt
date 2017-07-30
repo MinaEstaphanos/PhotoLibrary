@@ -1,0 +1,1 @@
+I:\Dev\PhotoLibrary\PhotoLibrary.Web\obj\Debug\PhotoLibrary.Web.csprojResolveAssemblyReference.cache

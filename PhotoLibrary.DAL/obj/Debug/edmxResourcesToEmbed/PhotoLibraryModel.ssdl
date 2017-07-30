@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PhotoLibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="ZIP" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="Community">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="Controller">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="ControllerAction">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ControllerId" Type="int" Nullable="false" />
+    <Property Name="ActionId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="ControllerActionForRole">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+      <PropertyRef Name="ActionId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ControllerId" Type="int" Nullable="false" />
+    <Property Name="ActionId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="PersonalPhoto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="OwnerId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="PhotoTheme">
+    <Key>
+      <PropertyRef Name="PhotoId" />
+      <PropertyRef Name="ThemeId" />
+    </Key>
+    <Property Name="PhotoId" Type="int" Nullable="false" />
+    <Property Name="ThemeId" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Theme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThemeImage" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="ThemeImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="WebSite" Type="nvarchar" MaxLength="100" />
+    <Property Name="DefaultPersonalPhoto" Type="int" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="GenderId" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="UserCommunity">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="CommunityId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CommunityId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastChanged" Type="date" />
+  </EntityType>
+  <Association Name="FK__Address__Photogr__3F466844">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalP__Photo__47DBAE45">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonalPhoto" Type="Self.PersonalPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonalPhoto">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Phone__Photograp__44FF419A">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Phone">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Photo__Photograp__4E88ABD4">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Photograp__Gende__3B75D760">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Photograp__Photo__4AB81AF0">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserCommunity" Type="Self.UserCommunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCommunity">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhotoThem__Photo__5165187F">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PhotoTheme" Type="Self.PhotoTheme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotoTheme">
+        <PropertyRef Name="PhotoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhotoThem__Theme__52593CB8">
+    <End Role="Theme" Type="Self.Theme" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PhotoTheme" Type="Self.PhotoTheme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotoTheme">
+        <PropertyRef Name="ThemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__State__CountryId__276EDEB3">
+    <End Role="Country" Type="Self.Country" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address_State">
+    <End Role="State" Type="Self.State" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControllerAction_Action">
+    <End Role="Action" Type="Self.Action" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ControllerAction" Type="Self.ControllerAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Action">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ControllerAction">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControllerAction_Controller">
+    <End Role="Controller" Type="Self.Controller" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ControllerAction" Type="Self.ControllerAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Controller">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ControllerAction">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControllerActionForRole_ControllerAction">
+    <End Role="ControllerAction" Type="Self.ControllerAction" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ControllerActionForRole" Type="Self.ControllerActionForRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ControllerAction">
+        <PropertyRef Name="ControllerId" />
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="ControllerActionForRole">
+        <PropertyRef Name="ControllerId" />
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControllerActionForRole_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ControllerActionForRole" Type="Self.ControllerActionForRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ControllerActionForRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotographersCommunity_Community">
+    <End Role="Community" Type="Self.Community" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserCommunity" Type="Self.UserCommunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Community">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCommunity">
+        <PropertyRef Name="CommunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Theme_ThemeImage">
+    <End Role="ThemeImage" Type="Self.ThemeImage" Multiplicity="0..1" />
+    <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThemeImage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Theme">
+        <PropertyRef Name="ThemeImage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PhotoLibraryModelStoreContainer">
+    <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Community" EntityType="Self.Community" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Controller" EntityType="Self.Controller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ControllerAction" EntityType="Self.ControllerAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ControllerActionForRole" EntityType="Self.ControllerActionForRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonalPhoto" EntityType="Self.PersonalPhoto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phone" EntityType="Self.Phone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhotoTheme" EntityType="Self.PhotoTheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThemeImage" EntityType="Self.ThemeImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCommunity" EntityType="Self.UserCommunity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Address__Photogr__3F466844" Association="Self.FK__Address__Photogr__3F466844">
+      <End Role="User" EntitySet="User" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalP__Photo__47DBAE45" Association="Self.FK__PersonalP__Photo__47DBAE45">
+      <End Role="User" EntitySet="User" />
+      <End Role="PersonalPhoto" EntitySet="PersonalPhoto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Phone__Photograp__44FF419A" Association="Self.FK__Phone__Photograp__44FF419A">
+      <End Role="User" EntitySet="User" />
+      <End Role="Phone" EntitySet="Phone" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Photo__Photograp__4E88ABD4" Association="Self.FK__Photo__Photograp__4E88ABD4">
+      <End Role="User" EntitySet="User" />
+      <End Role="Photo" EntitySet="Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Photograp__Gende__3B75D760" Association="Self.FK__Photograp__Gende__3B75D760">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Photograp__Photo__4AB81AF0" Association="Self.FK__Photograp__Photo__4AB81AF0">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserCommunity" EntitySet="UserCommunity" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhotoThem__Photo__5165187F" Association="Self.FK__PhotoThem__Photo__5165187F">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="PhotoTheme" EntitySet="PhotoTheme" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhotoThem__Theme__52593CB8" Association="Self.FK__PhotoThem__Theme__52593CB8">
+      <End Role="Theme" EntitySet="Theme" />
+      <End Role="PhotoTheme" EntitySet="PhotoTheme" />
+    </AssociationSet>
+    <AssociationSet Name="FK__State__CountryId__276EDEB3" Association="Self.FK__State__CountryId__276EDEB3">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address_State" Association="Self.FK_Address_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControllerAction_Action" Association="Self.FK_ControllerAction_Action">
+      <End Role="Action" EntitySet="Action" />
+      <End Role="ControllerAction" EntitySet="ControllerAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControllerAction_Controller" Association="Self.FK_ControllerAction_Controller">
+      <End Role="Controller" EntitySet="Controller" />
+      <End Role="ControllerAction" EntitySet="ControllerAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControllerActionForRole_ControllerAction" Association="Self.FK_ControllerActionForRole_ControllerAction">
+      <End Role="ControllerAction" EntitySet="ControllerAction" />
+      <End Role="ControllerActionForRole" EntitySet="ControllerActionForRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControllerActionForRole_UserRole" Association="Self.FK_ControllerActionForRole_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="ControllerActionForRole" EntitySet="ControllerActionForRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotographersCommunity_Community" Association="Self.FK_PhotographersCommunity_Community">
+      <End Role="Community" EntitySet="Community" />
+      <End Role="UserCommunity" EntitySet="UserCommunity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Theme_ThemeImage" Association="Self.FK_Theme_ThemeImage">
+      <End Role="ThemeImage" EntitySet="ThemeImage" />
+      <End Role="Theme" EntitySet="Theme" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

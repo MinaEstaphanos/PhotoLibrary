@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PhotoLibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="ZIP" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Address__Photogr__3F466844" FromRole="Address" ToRole="User" />
+    <NavigationProperty Name="State" Relationship="Self.FK_Address_State" FromRole="Address" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Community">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="UserCommunities" Relationship="Self.FK_PhotographersCommunity_Community" FromRole="Community" ToRole="UserCommunity" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="States" Relationship="Self.FK__State__CountryId__276EDEB3" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Photograp__Gende__3B75D760" FromRole="Gender" ToRole="User" />
+  </EntityType>
+  <EntityType Name="PersonalPhoto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="User" Relationship="Self.FK__PersonalP__Photo__47DBAE45" FromRole="PersonalPhoto" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Phone__Photograp__44FF419A" FromRole="Phone" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerId" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Photo__Photograp__4E88ABD4" FromRole="Photo" ToRole="User" />
+    <NavigationProperty Name="PhotoThemes" Relationship="Self.FK__PhotoThem__Photo__5165187F" FromRole="Photo" ToRole="PhotoTheme" />
+  </EntityType>
+  <EntityType Name="PhotoTheme">
+    <Key>
+      <PropertyRef Name="PhotoId" />
+      <PropertyRef Name="ThemeId" />
+    </Key>
+    <Property Name="PhotoId" Type="Int32" Nullable="false" />
+    <Property Name="ThemeId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Photo" Relationship="Self.FK__PhotoThem__Photo__5165187F" FromRole="PhotoTheme" ToRole="Photo" />
+    <NavigationProperty Name="Theme" Relationship="Self.FK__PhotoThem__Theme__52593CB8" FromRole="PhotoTheme" ToRole="Theme" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_State" FromRole="State" ToRole="Address" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__State__CountryId__276EDEB3" FromRole="State" ToRole="Country" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Theme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ThemeImage" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="PhotoThemes" Relationship="Self.FK__PhotoThem__Theme__52593CB8" FromRole="Theme" ToRole="PhotoTheme" />
+    <NavigationProperty Name="ThemeImage1" Relationship="Self.FK_Theme_ThemeImage" FromRole="Theme" ToRole="ThemeImage" />
+  </EntityType>
+  <EntityType Name="ThemeImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Themes" Relationship="Self.FK_Theme_ThemeImage" FromRole="ThemeImage" ToRole="Theme" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="PhotoLibraryModel.UserRoles" />
+    <Property Name="WebSite" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DefaultPersonalPhoto" Type="Int32" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="GenderId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FK__Address__Photogr__3F466844" FromRole="User" ToRole="Address" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK__Photograp__Gende__3B75D760" FromRole="User" ToRole="Gender" />
+    <NavigationProperty Name="PersonalPhotoes" Relationship="Self.FK__PersonalP__Photo__47DBAE45" FromRole="User" ToRole="PersonalPhoto" />
+    <NavigationProperty Name="Phones" Relationship="Self.FK__Phone__Photograp__44FF419A" FromRole="User" ToRole="Phone" />
+    <NavigationProperty Name="Photos" Relationship="Self.FK__Photo__Photograp__4E88ABD4" FromRole="User" ToRole="Photo" />
+    <NavigationProperty Name="UserCommunities" Relationship="Self.FK__Photograp__Photo__4AB81AF0" FromRole="User" ToRole="UserCommunity" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="UserCommunity">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="CommunityId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CommunityId" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Community" Relationship="Self.FK_PhotographersCommunity_Community" FromRole="UserCommunity" ToRole="Community" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Photograp__Photo__4AB81AF0" FromRole="UserCommunity" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="PhotoLibraryModel.UserRoles" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
+    <NavigationProperty Name="ControllerActionForRoles" Relationship="PhotoLibraryModel.FK_ControllerActionForRole_UserRole" FromRole="UserRole" ToRole="ControllerActionForRole" />
+  </EntityType>
+  <Association Name="FK__Address__Photogr__3F466844">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address_State">
+    <End Role="State" Type="Self.State" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotographersCommunity_Community">
+    <End Role="Community" Type="Self.Community" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserCommunity" Type="Self.UserCommunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Community">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCommunity">
+        <PropertyRef Name="CommunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__State__CountryId__276EDEB3">
+    <End Role="Country" Type="Self.Country" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Photograp__Gende__3B75D760">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalP__Photo__47DBAE45">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonalPhoto" Type="Self.PersonalPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonalPhoto">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Phone__Photograp__44FF419A">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Phone">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Photo__Photograp__4E88ABD4">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhotoThem__Photo__5165187F">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PhotoTheme" Type="Self.PhotoTheme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotoTheme">
+        <PropertyRef Name="PhotoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhotoThem__Theme__52593CB8">
+    <End Role="Theme" Type="Self.Theme" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PhotoTheme" Type="Self.PhotoTheme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotoTheme">
+        <PropertyRef Name="ThemeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Theme_ThemeImage">
+    <End Role="ThemeImage" Type="Self.ThemeImage" Multiplicity="0..1" />
+    <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThemeImage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Theme">
+        <PropertyRef Name="ThemeImage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Photograp__Photo__4AB81AF0">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserCommunity" Type="Self.UserCommunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCommunity">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PhotoLibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="Communities" EntityType="Self.Community" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="PersonalPhotoes" EntityType="Self.PersonalPhoto" />
+    <EntitySet Name="Phones" EntityType="Self.Phone" />
+    <EntitySet Name="Photos" EntityType="Self.Photo" />
+    <EntitySet Name="PhotoThemes" EntityType="Self.PhotoTheme" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Themes" EntityType="Self.Theme" />
+    <EntitySet Name="ThemeImages" EntityType="Self.ThemeImage" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserCommunities" EntityType="Self.UserCommunity" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <AssociationSet Name="FK__Address__Photogr__3F466844" Association="Self.FK__Address__Photogr__3F466844">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address_State" Association="Self.FK_Address_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotographersCommunity_Community" Association="Self.FK_PhotographersCommunity_Community">
+      <End Role="Community" EntitySet="Communities" />
+      <End Role="UserCommunity" EntitySet="UserCommunities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__State__CountryId__276EDEB3" Association="Self.FK__State__CountryId__276EDEB3">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Photograp__Gende__3B75D760" Association="Self.FK__Photograp__Gende__3B75D760">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalP__Photo__47DBAE45" Association="Self.FK__PersonalP__Photo__47DBAE45">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PersonalPhoto" EntitySet="PersonalPhotoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Phone__Photograp__44FF419A" Association="Self.FK__Phone__Photograp__44FF419A">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Phone" EntitySet="Phones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Photo__Photograp__4E88ABD4" Association="Self.FK__Photo__Photograp__4E88ABD4">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Photo" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhotoThem__Photo__5165187F" Association="Self.FK__PhotoThem__Photo__5165187F">
+      <End Role="Photo" EntitySet="Photos" />
+      <End Role="PhotoTheme" EntitySet="PhotoThemes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhotoThem__Theme__52593CB8" Association="Self.FK__PhotoThem__Theme__52593CB8">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="PhotoTheme" EntitySet="PhotoThemes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Theme_ThemeImage" Association="Self.FK_Theme_ThemeImage">
+      <End Role="ThemeImage" EntitySet="ThemeImages" />
+      <End Role="Theme" EntitySet="Themes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Photograp__Photo__4AB81AF0" Association="Self.FK__Photograp__Photo__4AB81AF0">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserCommunity" EntitySet="UserCommunities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Actions" EntityType="PhotoLibraryModel.Action" />
+    <EntitySet Name="Controllers" EntityType="PhotoLibraryModel.Controller" />
+    <EntitySet Name="ControllerActions" EntityType="PhotoLibraryModel.ControllerAction" />
+    <EntitySet Name="ControllerActionForRoles" EntityType="PhotoLibraryModel.ControllerActionForRole" />
+    <AssociationSet Name="FK_ControllerAction_Action" Association="PhotoLibraryModel.FK_ControllerAction_Action">
+      <End Role="Action" EntitySet="Actions" />
+      <End Role="ControllerAction" EntitySet="ControllerActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControllerAction_Controller" Association="PhotoLibraryModel.FK_ControllerAction_Controller">
+      <End Role="Controller" EntitySet="Controllers" />
+      <End Role="ControllerAction" EntitySet="ControllerActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControllerActionForRole_ControllerAction" Association="PhotoLibraryModel.FK_ControllerActionForRole_ControllerAction">
+      <End Role="ControllerAction" EntitySet="ControllerActions" />
+      <End Role="ControllerActionForRole" EntitySet="ControllerActionForRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControllerActionForRole_UserRole" Association="PhotoLibraryModel.FK_ControllerActionForRole_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="ControllerActionForRole" EntitySet="ControllerActionForRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EnumType Name="UserRoles" a:ExternalTypeName="PhotoLibraryHelper.UserRoles" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="PhotoLibraryModel.Actions" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ControllerActions" Relationship="PhotoLibraryModel.FK_ControllerAction_Action" FromRole="Action" ToRole="ControllerAction" />
+  </EntityType>
+  <EntityType Name="Controller">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="PhotoLibraryModel.Controllers" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ControllerActions" Relationship="PhotoLibraryModel.FK_ControllerAction_Controller" FromRole="Controller" ToRole="ControllerAction" />
+  </EntityType>
+  <EntityType Name="ControllerAction">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ControllerId" Type="PhotoLibraryModel.Controllers" Nullable="false" />
+    <Property Name="ActionId" Type="PhotoLibraryModel.Actions" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Action" Relationship="PhotoLibraryModel.FK_ControllerAction_Action" FromRole="ControllerAction" ToRole="Action" />
+    <NavigationProperty Name="Controller" Relationship="PhotoLibraryModel.FK_ControllerAction_Controller" FromRole="ControllerAction" ToRole="Controller" />
+    <NavigationProperty Name="ControllerActionForRoles" Relationship="PhotoLibraryModel.FK_ControllerActionForRole_ControllerAction" FromRole="ControllerAction" ToRole="ControllerActionForRole" />
+  </EntityType>
+  <EntityType Name="ControllerActionForRole">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+      <PropertyRef Name="ActionId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ControllerId" Type="PhotoLibraryModel.Controllers" Nullable="false" />
+    <Property Name="ActionId" Type="PhotoLibraryModel.Actions" Nullable="false" />
+    <Property Name="RoleId" Type="PhotoLibraryModel.UserRoles" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastChanged" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ControllerAction" Relationship="PhotoLibraryModel.FK_ControllerActionForRole_ControllerAction" FromRole="ControllerActionForRole" ToRole="ControllerAction" />
+    <NavigationProperty Name="UserRole" Relationship="PhotoLibraryModel.FK_ControllerActionForRole_UserRole" FromRole="ControllerActionForRole" ToRole="UserRole" />
+  </EntityType>
+  <Association Name="FK_ControllerAction_Action">
+    <End Type="PhotoLibraryModel.Action" Role="Action" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PhotoLibraryModel.ControllerAction" Role="ControllerAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Action">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ControllerAction">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControllerAction_Controller">
+    <End Type="PhotoLibraryModel.Controller" Role="Controller" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PhotoLibraryModel.ControllerAction" Role="ControllerAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Controller">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ControllerAction">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControllerActionForRole_ControllerAction">
+    <End Type="PhotoLibraryModel.ControllerAction" Role="ControllerAction" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PhotoLibraryModel.ControllerActionForRole" Role="ControllerActionForRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ControllerAction">
+        <PropertyRef Name="ControllerId" />
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="ControllerActionForRole">
+        <PropertyRef Name="ControllerId" />
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControllerActionForRole_UserRole">
+    <End Type="PhotoLibraryModel.UserRole" Role="UserRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PhotoLibraryModel.ControllerActionForRole" Role="ControllerActionForRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ControllerActionForRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="Actions" a:ExternalTypeName="PhotoLibraryHelper.Actions" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  <EnumType Name="Controllers" a:ExternalTypeName="PhotoLibraryHerlper.Actions" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+</Schema>

@@ -3,3 +3,11 @@ I:\Dev\PhotoLibrary\PhotoLibraryDTO\bin\Debug\PhotoLibraryDTO.pdb
 I:\Dev\PhotoLibrary\PhotoLibraryDTO\obj\Debug\PhotoLibrary.DTO.csprojResolveAssemblyReference.cache
 I:\Dev\PhotoLibrary\PhotoLibraryDTO\obj\Debug\PhotoLibraryDTO.dll
 I:\Dev\PhotoLibrary\PhotoLibraryDTO\obj\Debug\PhotoLibraryDTO.pdb
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\bin\Debug\PhotoLibrary.DTO.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\bin\Debug\PhotoLibrary.DTO.pdb
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\bin\Debug\PhotoLibraryHelper.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\bin\Debug\ImageProcessor.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\bin\Debug\PhotoLibraryHelper.pdb
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\obj\Debug\PhotoLibrary.DTO.csprojResolveAssemblyReference.cache
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\obj\Debug\PhotoLibrary.DTO.dll
+I:\Dev\PhotoLibrary\PhotoLibrary.DTO\obj\Debug\PhotoLibrary.DTO.pdb

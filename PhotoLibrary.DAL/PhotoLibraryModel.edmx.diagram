@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ff975ee0e1b74b90905eec132399b916" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="PhotoLibraryModel.Address" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Community" Width="1.5" PointX="10.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Country" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Gender" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.PersonalPhoto" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Phone" Width="1.5" PointX="9.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Photo" Width="1.5" PointX="9.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.PhotoTheme" Width="1.5" PointX="12" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.State" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Theme" Width="1.5" PointX="9.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.ThemeImage" Width="1.5" PointX="7.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.User" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.UserCommunity" Width="1.5" PointX="12.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.UserRole" Width="1.5" PointX="5" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__Address__Photogr__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_Address_State" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_PhotographersCommunity_Community" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__State__CountryId__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__Photograp__Gende__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__PersonalP__Photo__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__Phone__Photograp__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__Photo__Photograp__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__PhotoThem__Photo__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__PhotoThem__Theme__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_Theme_ThemeImage" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK__Photograp__Photo__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_User_UserRole" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Action" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.Controller" Width="1.5" PointX="0.75" PointY="13" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.ControllerAction" Width="1.5" PointX="3" PointY="13" />
+        <EntityTypeShape EntityType="PhotoLibraryModel.ControllerActionForRole" Width="1.5" PointX="7.875" PointY="12.375" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_ControllerAction_Action" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_ControllerAction_Controller" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_ControllerActionForRole_ControllerAction" />
+        <AssociationConnector Association="PhotoLibraryModel.FK_ControllerActionForRole_UserRole" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

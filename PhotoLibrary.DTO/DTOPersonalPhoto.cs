@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhotoLibrary.DTO
 {
-    public class DTOPersonalPhoto
+    public class DTOPersonalPhoto : DTOObject
     {
     }
 }

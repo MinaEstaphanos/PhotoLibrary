@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace PhotoLibrary.DTO
 {
-    public class DTOPhoto
+    public class DTOPhoto : DTOObject
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int PhotographerId { get; set; }
+        
+
     }
 }
